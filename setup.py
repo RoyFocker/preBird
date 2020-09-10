@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'prebird',         # How you named your package folder (MyLib)
   packages = ['prebird'],   # Chose the same as "name"
-  version = '0.1',      # Start with a small number and increase it with every change you make
+  version = '0.1.0',      # Start with a small number and increase it with every change you make
   license='afl-3.0',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Intended to help preprocessing birds songs',   # Give a short description about your library
   author = 'Liber Adrián Hernández Abad',                   # Type in your name
