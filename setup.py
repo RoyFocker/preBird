@@ -17,7 +17,7 @@ setup(
           'matplotlib',
           'scipy',
           'sklearn',
-          'glob',
+          'glob3',
           'pickle',
           'skimage',
           'playsound'

@@ -2,4 +2,4 @@
 setup.cfg
 setup.py
 prebird/__init__.py
-prebird/scyspec.py
+prebird/prebird.py
