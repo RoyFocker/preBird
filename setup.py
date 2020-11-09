@@ -1,8 +1,10 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 from distutils.core import setup
 setup(
   name = 'prebird',         
   packages = ['prebird'],   
-  version = '0.1.1',      
+  version = '1.0.0',      
   license='afl-3.0',      
   description = 'Intended to help preprocessing birds songs',   
   author = 'Liber Adrián Hernández Abad',                   
