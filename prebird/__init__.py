@@ -1,4 +1,4 @@
 #Prebird
 #Coded by L. Adrián Hernández A.
 
-from prebird.scyspec import test
+from prebird.prebird import spec, process, display, result
