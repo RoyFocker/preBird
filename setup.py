@@ -4,13 +4,13 @@ from distutils.core import setup
 setup(
   name = 'prebird',         
   packages = ['prebird'],   
-  version = '1.1.1',      
+  version = '1.2.0',      
   license='afl-3.0',      
   description = 'Intended to help preprocessing birds songs',   
   author = 'Liber Adrián Hernández Abad',                   
   author_email = 'liber.a.hernandez@gmail.com',      
   url = 'https://github.com/RoyFocker',   
-  download_url = 'https://github.com/RoyFocker/preBird/archive/1.1.1.tar.gz', 
+  download_url = 'https://github.com/RoyFocker/preBird/archive/1.2.0.tar.gz',
   keywords = ['bird', 'birds', 'audio','preprocessing','processing'], 
   install_requires=[
           'numpy',
