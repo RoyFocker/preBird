@@ -5,7 +5,6 @@ from scipy import signal
 from scipy.io import wavfile
 from sklearn.preprocessing import normalize
 import glob
-import pickle
 from skimage import morphology
 import scipy.io.wavfile as wavf
 from playsound import playsound
