@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module prebird</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>prebird</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/royfocker/preBird/prebird/prebird.py">/home/royfocker/preBird/prebird/prebird.py</a></font></td></tr></table>
+    <p><tt>Biblioteca&nbsp;para&nbsp;el&nbsp;preprocesamiento&nbsp;de&nbsp;audio&nbsp;orientada&nbsp;al&nbsp;canto&nbsp;de&nbsp;aves</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="glob.html">glob</a><br>
+<a href="skimage.morphology.html">skimage.morphology</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="scipy.signal.html">scipy.signal</a><br>
+<a href="scipy.io.wavfile.html">scipy.io.wavfile</a><br>
+</td><td width="25%" valign=top><a href="scipy.io.wavfile.html">scipy.io.wavfile</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="prebird.html#display">display</a>
+</font></dt><dt><font face="helvetica, arial"><a href="prebird.html#process">process</a>
+</font></dt><dt><font face="helvetica, arial"><a href="prebird.html#result">result</a>
+</font></dt><dt><font face="helvetica, arial"><a href="prebird.html#spec">spec</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="display">class <strong>display</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;orientada&nbsp;a&nbsp;mostrar&nbsp;los&nbsp;resultados&nbsp;y&nbsp;otros&nbsp;datos&nbsp;de&nbsp;interés&nbsp;provenientes&nbsp;de<br>
+las&nbsp;funciones&nbsp;de&nbsp;las&nbsp;otras&nbsp;clases.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="display-player"><strong>player</strong></a>(wavs, lim, start=0)</dt><dd><tt>Reproduce&nbsp;audios&nbsp;seleccionados</tt></dd></dl>
+
+<dl><dt><a name="display-plotter"><strong>plotter</strong></a>(frequencies, times, spectrograms, specific=False, i=0)</dt><dd><tt>Grafica&nbsp;espectrogramas</tt></dd></dl>
+
+<dl><dt><a name="display-plotterbw"><strong>plotterbw</strong></a>(frequencies, times, spectrograms, specific=False, i=0)</dt><dd><tt>Grafica&nbsp;espectrogramas&nbsp;de&nbsp;la&nbsp;funcion&nbsp;blackadnwhite</tt></dd></dl>
+
+<dl><dt><a name="display-stats"><strong>stats</strong></a>(specs)</dt><dd><tt>Muestra&nbsp;estadisticas&nbsp;de&nbsp;una&nbsp;lista&nbsp;de&nbsp;espectrogramas</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="process">class <strong>process</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;dirigida&nbsp;clase&nbsp;se&nbsp;dedica&nbsp;a&nbsp;realizar&nbsp;operaciones&nbsp;y&nbsp;procesos&nbsp;lógicos&nbsp;que&nbsp;afectan&nbsp;a&nbsp;los<br>
+espectrogramas<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="process-activity"><strong>activity</strong></a>(specT, percentage=0.6, show=True)</dt><dd><tt>Clasifica&nbsp;entre&nbsp;actividad&nbsp;y&nbsp;no&nbsp;actividad&nbsp;en&nbsp;el&nbsp;eje&nbsp;del&nbsp;tiempo</tt></dd></dl>
+
+<dl><dt><a name="process-adjustment"><strong>adjustment</strong></a>(spectograms)</dt><dd><tt>Realiza&nbsp;operaciones&nbsp;morfologicas&nbsp;a&nbsp;los&nbsp;espectrogramas</tt></dd></dl>
+
+<dl><dt><a name="process-bird"><strong>bird</strong></a>(convertedindex, samples)</dt><dd><tt>Obtiene&nbsp;una&nbsp;lista&nbsp;con&nbsp;la&nbsp;informacion&nbsp;para&nbsp;escribir&nbsp;wavs</tt></dd></dl>
+
+<dl><dt><a name="process-index2samples"><strong>index2samples</strong></a>(index, samples, specs)</dt><dd><tt>Convierte&nbsp;los&nbsp;indices&nbsp;a&nbsp;momentos&nbsp;del&nbsp;muestreo&nbsp;de&nbsp;los&nbsp;archivos&nbsp;wav</tt></dd></dl>
+
+<dl><dt><a name="process-intervals"><strong>intervals</strong></a>(specs, show=True)</dt><dd><tt>Obtiene&nbsp;los&nbsp;intervalos&nbsp;exactos&nbsp;de&nbsp;tiempo&nbsp;en&nbsp;los&nbsp;que&nbsp;hubo&nbsp;actividad&nbsp;<br>
+y&nbsp;en&nbsp;los&nbsp;que&nbsp;no&nbsp;la&nbsp;hubo</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="result">class <strong>result</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;orientada&nbsp;a&nbsp;entregar&nbsp;los&nbsp;resultados&nbsp;finales&nbsp;del&nbsp;procesamiento<br>
+realizado&nbsp;por&nbsp;las&nbsp;otras&nbsp;clases<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="result-outwavAves"><strong>outwavAves</strong></a>(index, route)</dt><dd><tt>Escribe&nbsp;wavs&nbsp;con&nbsp;cantos&nbsp;de&nbsp;aves</tt></dd></dl>
+
+<dl><dt><a name="result-outwavFondos"><strong>outwavFondos</strong></a>(index, route)</dt><dd><tt>Escribe&nbsp;wavs&nbsp;con&nbsp;ruido&nbsp;de&nbsp;fondo</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="spec">class <strong>spec</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;dirigida&nbsp;a&nbsp;la&nbsp;obtención&nbsp;de&nbsp;espectrogramas&nbsp;a&nbsp;partir&nbsp;de&nbsp;los<br>
+audios&nbsp;utilizados&nbsp;por&nbsp;el&nbsp;usuario<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="spec-blackandwhite"><strong>blackandwhite</strong></a>(spectrograms)</dt><dd><tt>Selecciona&nbsp;pixeles&nbsp;de&nbsp;un&nbsp;espectrograma</tt></dd></dl>
+
+<dl><dt><a name="spec-get_spec"><strong>get_spec</strong></a>(samples, samples_rates)</dt><dd><tt>Obtiene&nbsp;espectrogramas&nbsp;de&nbsp;archivos&nbsp;wav</tt></dd></dl>
+
+<dl><dt><a name="spec-reader"><strong>reader</strong></a>(route, lim, start=0)</dt><dd><tt>Lee&nbsp;los&nbsp;archivos&nbsp;wav&nbsp;de&nbsp;un&nbsp;directorio</tt></dd></dl>
+
+<dl><dt><a name="spec-sampler"><strong>sampler</strong></a>(names)</dt><dd><tt>Obtiene&nbsp;el&nbsp;muestreo&nbsp;de&nbsp;los&nbsp;archivos&nbsp;wav</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-main"><strong>main</strong></a>()</dt></dl>
+</td></tr></table>
+</body></html>

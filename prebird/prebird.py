@@ -1,4 +1,4 @@
-#Importaciones
+"""Biblioteca para el preprocesamiento de audio orientada al canto de aves"""
 import numpy as np
 import matplotlib.pyplot as plt 
 from scipy import signal
@@ -10,8 +10,12 @@ import scipy.io.wavfile as wavf
 from playsound import playsound
 
 class process:
-
+    """
+    Clase dirigida clase se dedica a realizar operaciones y procesos lógicos que afectan a los
+    espectrogramas
+    """
     def adjustment(spectograms):
+        """Realiza operaciones morfologicas a los espectrogramas"""
         for x in range(0,len(spectograms)):
             spectograms[x]=morphology.dilation(spectograms[x])
             spectograms[x]=morphology.dilation(spectograms[x])
@@ -19,6 +23,7 @@ class process:
         return spectograms
 
     def activity(specT,percentage=0.6,show=True):
+        """Clasifica entre actividad y no actividad en el eje del tiempo"""
         activities=[]
         for x in range(0,len(specT)):
             parameter=np.max(specT[x])*(percentage)
@@ -33,6 +38,8 @@ class process:
         return activities
 
     def intervals(specs,show=True):
+        """Obtiene los intervalos exactos de tiempo en los que hubo actividad 
+        y en los que no la hubo"""
         indicesAve=[]
         indicesFondo=[]
         for x in range(0,len(specs)):
@@ -62,6 +69,7 @@ class process:
         return indicesAve,indicesFondo
 
     def index2samples(index,samples,specs):
+        """Convierte los indices a momentos del muestreo de los archivos wav"""
         convertedindex=[]
         for x in range(0,len(samples)):
             lenindex=len(specs[x])
@@ -74,6 +82,7 @@ class process:
         return convertedindex
 
     def bird(convertedindex,samples):
+        """Obtiene una lista con la informacion para escribir wavs"""
         indices=[]
         for x in range(0,len(samples)):
             indices.append([])
@@ -86,8 +95,12 @@ class process:
         return indices
 
 class spec:
-
+    """
+    Clase dirigida a la obtención de espectrogramas a partir de los
+    audios utilizados por el usuario
+    """
     def reader(route,lim,start=0):
+        """Lee los archivos wav de un directorio"""
         out=[] 
         for wave_file in glob.glob(route+"/*.wav"):
             if start and start==lim: 
@@ -99,6 +112,7 @@ class spec:
         return out
 
     def sampler(names):
+        """Obtiene el muestreo de los archivos wav"""
         out_sr=[]
         out_s=[]
         for name in names:
@@ -108,6 +122,7 @@ class spec:
         return out_sr,out_s
 
     def get_spec(samples,samples_rates):
+        """Obtiene espectrogramas de archivos wav"""
         f=[]
         t=[]
         s=[]
@@ -121,6 +136,7 @@ class spec:
         return f,t,s
 
     def blackandwhite(spectrograms):
+        """Selecciona pixeles de un espectrograma"""
         bwspecs=[]
         for x in range(0,len(spectrograms)):
             spectrograms[x]=normalize(np.abs(spectrograms[x]))
@@ -137,8 +153,12 @@ class spec:
         return bwspecs
 
 class display:
-
+    """
+    Clase orientada a mostrar los resultados y otros datos de interés provenientes de
+    las funciones de las otras clases.
+    """
     def plotter(frequencies,times,spectrograms,specific=False,i=0):
+        """Grafica espectrogramas"""
         if specific==True: 
             plt.pcolormesh(times[i],frequencies[i],spectrograms[i],shading='auto') 
             plt.ylim(0,10000)
@@ -155,6 +175,7 @@ class display:
         return
 
     def plotterbw(frequencies,times,spectrograms,specific=False,i=0):
+        """Grafica espectrogramas de la funcion blackadnwhite"""
         if specific==True: 
             plt.pcolormesh(times[i],frequencies[i],spectrograms[i],cmap='Greys') 
             plt.ylim(0,10000)
@@ -171,6 +192,7 @@ class display:
         return
 
     def player(wavs,lim,start=0):
+        """Reproduce audios seleccionados"""
         for x in range(0,len(wavs)):
             if start and start==lim: 
                 break
@@ -180,6 +202,7 @@ class display:
             playsound(wavs[x])
 
     def stats(specs):
+        """Muestra estadisticas de una lista de espectrogramas"""
         for x in range(0,len(specs)):
             print("Espectrograma "+str(x)+":")
             print("Media: "+str(specs[x].mean())),
@@ -188,8 +211,12 @@ class display:
         return
 
 class result:
-
+    """
+    Clase orientada a entregar los resultados finales del procesamiento
+    realizado por las otras clases
+    """
     def outwavAves(index,route):
+        """Escribe wavs con cantos de aves"""
         wavs=[]
         fs=44100
         for x in range(0,len(index)):
@@ -204,6 +231,7 @@ class result:
         return wavs
 
     def outwavFondos(index,route):
+        """Escribe wavs con ruido de fondo"""
         wavs=[]
         fs=44100
         for x in range(0,len(index)):
@@ -216,3 +244,9 @@ class result:
                 wavs.append(out_f)
                 wavf.write(out_f,fs,index[x])
         return wavs
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
