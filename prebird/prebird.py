@@ -11,7 +11,7 @@ from playsound import playsound
 
 class process:
     """
-    Clase dirigida clase se dedica a realizar operaciones y procesos lógicos que afectan a los
+    Clase dirigida a realizar operaciones y procesos lógicos que afectan a los
     espectrogramas
     """
     def adjustment(spectograms):
@@ -144,10 +144,8 @@ class spec:
             Y=np.max(spectrograms[x],axis=0)*0.6 
             b2=np.subtract(spectrograms[x],Y)
             b1=np.subtract(spectrograms[x].T,X).T
-            b1[b1>0]=1
-            b2[b2>0]=1
-            b1[b1<0]=0
-            b2[b2<0]=0
+            b1=np.where(b1>0,1.0,0.0)
+            b2=np.where(b2>0,1.0,0.0)
             bw=np.logical_and(b1,b2)
             bwspecs.append(bw)
         return bwspecs
@@ -177,14 +175,14 @@ class display:
     def plotterbw(frequencies,times,spectrograms,specific=False,i=0):
         """Grafica espectrogramas de la funcion blackadnwhite"""
         if specific==True: 
-            plt.pcolormesh(times[i],frequencies[i],spectrograms[i],cmap='Greys') 
+            plt.pcolormesh(times[i],frequencies[i],spectrograms[i],cmap='Greys',shading='auto') 
             plt.ylim(0,10000)
             plt.ylabel('Frecuencia [Hz]') 
             plt.xlabel('Tiempo [s]')
             plt.show()
             return
         for x in range(0,len(spectrograms)):
-            plt.pcolormesh(times[x],frequencies[x],spectrograms[x],cmap='Greys')
+            plt.pcolormesh(times[x],frequencies[x],spectrograms[x],cmap='Greys',shading='auto')
             plt.ylim(0,10000)
             plt.ylabel('Frecuencia [Hz]')
             plt.xlabel('Tiempo [s]')
